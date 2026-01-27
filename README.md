@@ -23,8 +23,7 @@
 
 ---
 
-## 🎯 总奖金(大于2K USD)
-- 路线招商中
+## 🎯 总奖金 4台Mac Mini
 
 ---
 
@@ -51,11 +50,17 @@
 
 ## 🧩 赛道方向（Tracks）
 
-* **Sui**
-* **Cetus**
-* **Bucket**
-* **Haedal**
+* **Cetus** Mac mini M4 * 1
 
+- 需要赋能Cetus或者集成 聚合器 或者 SDK
+- https://github.com/CetusProtocol/aggregator
+- https://github.com/CetusProtocol/cetus-sdk-v2
+* **stablelayer**
+需要赋能stablelayer或者SDK
+- https://docs.stablelayer.site/
+- https://github.com/StableLayer/stable-layer-sdk
+
+* **Sui技术栈** Mac mini M4 * 1
 方向不限，只要你在 **Sui 上构建**，
 并且 **真的有 Vibe**。
 
