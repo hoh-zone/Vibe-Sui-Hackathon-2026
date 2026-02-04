@@ -1,0 +1,59 @@
+<svg width="80" height="40" viewBox="0 0 80 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- 海洋背景 -->
+  <defs>
+    <linearGradient id="oceanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4FC3F7" />
+      <stop offset="100%" stop-color="#29B6F6" />
+    </linearGradient>
+    <linearGradient id="bottleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8D6E63" />
+      <stop offset="100%" stop-color="#6D4C41" />
+    </linearGradient>
+    <filter id="waveFilter">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  
+  <!-- 海浪效果 -->
+  <path d="M0,30 Q20,25 40,30 T80,30 L80,40 L0,40 Z" fill="url(#oceanGradient)" opacity="0.7"/>
+  <path d="M0,32 Q15,28 30,32 T60,32 T80,32" fill="none" stroke="#1565C0" stroke-width="1" opacity="0.5"/>
+  
+  <!-- 漂流瓶主体 -->
+  <g transform="translate(25, 10)">
+    <!-- 瓶身 -->
+    <path d="M15,0 Q25,5 25,15 L25,25 Q25,30 20,30 L10,30 Q5,30 5,25 L5,15 Q5,5 15,0 Z" 
+          fill="url(#bottleGradient)" stroke="#4E342E" stroke-width="1"/>
+    
+    <!-- 瓶颈 -->
+    <rect x="12" y="-5" width="6" height="8" rx="2" fill="#5D4037" stroke="#4E342E" stroke-width="1"/>
+    
+    <!-- 瓶塞 -->
+    <ellipse cx="15" cy="-2" rx="4" ry="2" fill="#8D6E63" stroke="#6D4C41" stroke-width="0.5"/>
+    
+    <!-- 瓶内纸条 -->
+    <rect x="8" y="8" width="14" height="12" rx="1" fill="#FFECB3" stroke="#FFD54F" stroke-width="0.5">
+      <animateTransform attributeName="transform" type="rotate" from="0 15 14" to="5 15 14" dur="3s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- 纸条上的文字（简化表示） -->
+    <line x1="10" y1="11" x2="20" y2="11" stroke="#795548" stroke-width="0.5"/>
+    <line x1="10" y1="13" x2="18" y2="13" stroke="#795548" stroke-width="0.5"/>
+    <line x1="10" y1="15" x2="16" y2="15" stroke="#795548" stroke-width="0.5"/>
+    <line x1="10" y1="17" x2="19" y2="17" stroke="#795548" stroke-width="0.5"/>
+  </g>
+  
+  <!-- 水泡效果 -->
+  <circle cx="10" cy="25" r="2" fill="#FFFFFF" opacity="0.6">
+    <animate attributeName="cy" from="25" to="5" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0.6" to="0" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="70" cy="30" r="1.5" fill="#FFFFFF" opacity="0.4">
+    <animate attributeName="cy" from="30" to="10" dur="5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" from="0.4" to="0" dur="5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- 高光效果 -->
+  <ellipse cx="32" cy="18" rx="3" ry="6" fill="#FFFFFF" opacity="0.3"/>
+  <ellipse cx="18" cy="12" rx="1" ry="2" fill="#FFFFFF" opacity="0.5"/>
+</svg>
