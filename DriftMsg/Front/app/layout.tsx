@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { inter } from "./fonts";
 import { Providers } from "./providers";
@@ -15,6 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Script
+        async
+        src="https://analytics-api.d1v.ai/script.js"
+        data-website-id="918cbc2a-712c-4fb2-b251-6c6d224b812b"
+      />
       <body className={`${inter.className} antialiased`}>
         <Providers>{children}</Providers>
       </body>
