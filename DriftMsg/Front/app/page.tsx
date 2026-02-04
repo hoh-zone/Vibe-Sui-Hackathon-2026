@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { useState, useEffect } from 'react'
 import { getUserProfile, getUserDriftBottleCount, getUserDriftBottles, getBottleCreator } from '@/contracts/query'
 import { createBottle, pickBottle, throwBottle, replyAndSendToCreator } from '@/contracts/transactions'
-import { suiClient } from '@/contracts'
 import { Send, Anchor, MessageCircle } from 'lucide-react'
 import { SuiTransactionBlockResponse } from '@mysten/sui/client'
 import { CategorizedObjects } from '@/utils/assetsHelpers'
@@ -184,7 +183,7 @@ export default function Home() {
         onSuccess: async () => {
           alert('漂流瓶已成功丢回海里！');
           // 从已捡起的瓶子列表中移除
-          setPickedBottles((prev: any[]) => prev.filter(bottle => bottle.id !== bottleId));
+          setPickedBottles((prev: Array<{ id: string; message: string; replies: string[] }>) => prev.filter(bottle => bottle.id !== bottleId));
           setReplyInputs(prev => ({ ...prev, [bottleId]: '' }));
           
           // 更新瓶子计数
@@ -231,7 +230,7 @@ export default function Home() {
         onSuccess: async () => {
           alert('回复已发送给原发送者！');
           // 从已捡起的瓶子列表中移除（因为已经发送回去了）
-          setPickedBottles((prev: any[]) => prev.filter(bottle => bottle.id !== bottleId));
+          setPickedBottles((prev: Array<{ id: string; message: string; replies: string[] }>) => prev.filter(bottle => bottle.id !== bottleId));
           setReplyInputs(prev => ({ ...prev, [bottleId]: '' }));
           
           // 更新瓶子计数

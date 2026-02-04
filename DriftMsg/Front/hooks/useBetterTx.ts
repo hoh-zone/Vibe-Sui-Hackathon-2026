@@ -154,6 +154,7 @@ export function useBetterSignAndExecuteTransaction<TArgs extends unknown[] = unk
             setIsLoading(true)
             try {
                 return new Promise<SuiTransactionBlockResponse>((resolve, reject) => {
+                    // @ts-expect-error Dependency version conflict
                     signAndExecuteTransaction({ transaction: txInput }, {
                         onSuccess: async (result) => {
                             try {
@@ -204,6 +205,7 @@ export function useBetterSignAndExecuteTransactionAsync<TArgs extends unknown[] 
             try {
                 const txInput = await tx(...args)
                 return new Promise<SuiTransactionBlockResponse>((resolve, reject) => {
+                    // @ts-expect-error Dependency version conflict
                     signAndExecuteTransaction({ transaction: txInput }, {
                         onSuccess: async (result) => {
                             try {
@@ -279,6 +281,7 @@ export function useBetterSignAndExecuteTransactionWithSponsor<TArgs extends unkn
                 const { bytes, digest: sponsorDigest } = sponsorResponse
 
                 const { signature } = await signTransactionBlock({
+                    // @ts-expect-error Dependency version conflict
                     transaction: Transaction.from(fromBase64(bytes)),
                     chain: `sui:${network}`,
                 })
